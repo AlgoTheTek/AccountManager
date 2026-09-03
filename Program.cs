@@ -3,6 +3,7 @@ using AccountManager.Interfaces;
 using AccountManager.Models;
 using AccountManager.Repositories;
 using AccountManager.Services;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Text.Json;
@@ -14,8 +15,15 @@ using System.Text.Json;
 var builder = Host.CreateApplicationBuilder(args);
 
 // DI
+
 builder.Services.AddScoped<ITransactionRepository>(sp =>
-    new CsvTransactionRepository("account_20230228.csv"));
+{
+    var configuration = sp.GetRequiredService<IConfiguration>();
+    var fileName = configuration["TransactionFile:FileName"];
+
+    return new CsvTransactionRepository(fileName);
+});
+
 builder.Services.AddScoped<IAccountService, AccountService>();
 
 var host = builder.Build();
@@ -32,8 +40,6 @@ Console.WriteLine($"Transactions au 28/02/2022: {tx2022.Count()}");
 var sommeAmountEur = tx2022.Sum(t => t.AmountEur);
 Console.WriteLine($"Somme Des transactions (du 01/01/2022 au  28/02/2022) : {sommeAmountEur:F2} EUR");
 
-
-//Console.WriteLine($"USD -> EUR: {service.GetExchangeRate("USD", "EUR")}");
 
 // === TEST VALEUR COMPTE 01/01/2022 - 01/03/2023 ===
 Console.WriteLine("\n=== TEST PÉRIODE 01/01/2022 - 01/03/2023 ===");

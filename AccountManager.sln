@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35919.96 d17.13
+VisualStudioVersion = 17.13.35919.96
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManager", "AccountManager.csproj", "{BC162C37-BDA1-AC3C-83EC-CCD31BC5DE7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManager.Tests", "..\AccountManager.Tests\AccountManager.Tests.csproj", "{963A0A5A-6487-49A6-B27D-71AF979287C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{BC162C37-BDA1-AC3C-83EC-CCD31BC5DE7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC162C37-BDA1-AC3C-83EC-CCD31BC5DE7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC162C37-BDA1-AC3C-83EC-CCD31BC5DE7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{963A0A5A-6487-49A6-B27D-71AF979287C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{963A0A5A-6487-49A6-B27D-71AF979287C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{963A0A5A-6487-49A6-B27D-71AF979287C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{963A0A5A-6487-49A6-B27D-71AF979287C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
